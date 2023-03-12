@@ -1,5 +1,4 @@
 import React from "react";
-import Section from "components/Section/Section";
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
     <>
