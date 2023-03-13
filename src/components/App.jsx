@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Statistics from "./Statistics/Statistics";
-import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
-import Section from "./Section/Section";
-import Notification from "./Notification/Notification";
+import Statistics from "components/Statistics";
+import FeedbackOptions from "components/FeedbackOptions";
+import Section from "components/Section";
+import Notification from "components/Notification";
 
-export class App extends Component {
+class App extends Component {
   state = {
     good: 0,
     neutral: 0,
@@ -28,6 +28,7 @@ export class App extends Component {
   }
   
   render() {
+    const { good, neutral, bad } = this.state;
     return (
       <>
         <Section
@@ -42,16 +43,17 @@ export class App extends Component {
           : <Section
               title={'Statistics'}
               children={<Statistics
-                good={this.state.good}
-                neutral={this.state.neutral}
-                bad={this.state.bad}
+                good={good}
+                neutral={neutral}
+                bad={bad}
                 total={this.countTotalFeedback()}
                 positivePercentage={this.countPositiveFeedbackPercentage()}
               />}
-        />}
+            />
+        }
       </>
     );
   }; 
 }
 
-// export default App;
+export default App;
